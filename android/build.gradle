@@ -77,8 +77,9 @@ android {
 }
 
 repositories {
-  mavenCentral()
   google()
+  mavenLocal()
+  mavenCentral()
 }
 
 def kotlin_version = getExtOrDefault("kotlinVersion")
@@ -94,5 +95,8 @@ dependencies {
 
   implementation "androidx.core:core-ktx:1.8.0"
 
-  implementation fileTree(dir: file("$rootDir/app/libs"), include: ['*.aar', '*.jar'])
+  implementation 'com.here:heresdk-explore-android:+'
+//  implementation project(':heresdk')
+//  implementation files("$rootDir/libs/heresdk-explore-android.aar")
+//  implementation fileTree(dir: file("$rootDir/app/libs"), include: ['*.aar', '*.jar'])
 }

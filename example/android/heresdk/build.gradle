@@ -1,0 +1,17 @@
+apply plugin: 'maven-publish'
+
+publishing {
+    publications {
+        aar(MavenPublication) {
+            groupId 'com.here'
+            artifactId 'heresdk-explore-android'
+            version '4.18.2.0.105808'
+
+            artifact(file('heresdk-explore-android.aar'))
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
+}

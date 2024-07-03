@@ -101,11 +101,20 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
+    compileOptions {
+      sourceCompatibility JavaVersion.VERSION_11
+      targetCompatibility JavaVersion.VERSION_11
+    }
 }
 
 dependencies {
     // The version of react-native is set by the React Native Gradle Plugin
     implementation("com.facebook.react:react-android")
+
+    implementation 'com.here:heresdk-explore-android:4.18.2.0.105808'
+//     implementation project(':heresdk')
+//     runtimeOnly files("libs/heresdk-explore-android.aar")
 
     debugImplementation("com.facebook.flipper:flipper:$FLIPPER_VERSION")
     debugImplementation("com.facebook.flipper:flipper-network-plugin:$FLIPPER_VERSION") {
@@ -118,6 +127,12 @@ dependencies {
     } else {
         implementation jscFlavor
     }
+}
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+  google()
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
